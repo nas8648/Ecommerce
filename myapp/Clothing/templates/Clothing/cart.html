@@ -1,0 +1,57 @@
+{% extends 'clothing/base.html' %}
+{% load static %}
+
+{% block title %}Your Cart | Veloura{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">🛒 Your Cart</h2>
+
+  {% if items %}
+  <table class="table table-bordered align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Subtotal</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td style="width:120px;">
+          <img src="{% static 'clothing/images/'|add:item.product.image %}"
+               class="img-fluid rounded"
+               alt="{{ item.product.name }}">
+        </td>
+        <td>
+          <strong>{{ item.product.name }}</strong><br>
+          <small class="text-muted">{{ item.product.description|truncatewords:12 }}</small>
+        </td>
+        <td>₹ {{ item.product.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>₹ {{ item.subtotal }}</td>
+        <td>
+          <form action="{% url 'remove_from_cart' item.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="text-end">
+    <h3>Total: <span class="text-success">₹ {{ total }}</span></h3>
+    <!-- Add Checkout button if needed -->
+  </div>
+
+  {% else %}
+    <div class="alert alert-warning">Your cart is empty.</div>
+  {% endif %}
+</div>
+{% endblock %}

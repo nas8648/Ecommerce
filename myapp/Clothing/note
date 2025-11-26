@@ -1,0 +1,149 @@
+<!-- {% comment %} {% extends 'clothing/base.html' %}
+{% load static %}
+
+{% block title %}Products | Veloura{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 fw-semibold">Products</h2>
+<div class="row g-4">
+
+    <!-- Men Products -->
+    {% for i in "123456" %}
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card h-100 shadow-sm">
+            <img src="{% static 'clothing/images/men'|add:i|add:'.jpg' %}" class="card-img-top" style="height:260px; object-fit:cover;" alt="Men Product {{ i }}">
+            <div class="card-body">
+                <h5 class="card-title">Men Shirt {{ i }}</h5>
+                <p class="fw-bold text-success mb-0">₹{{ 499|add:i|add:"100" }}</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <form action="{% url 'add_to_cart' pk=i %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-2">
+                        <input type="number" name="quantity" value="1" min="1" class="form-control" style="width:70px; display:inline-block;">
+                    </div>
+                    <button class="btn btn-outline-primary w-100">Add to Cart 🛒</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Women Products -->
+    {% for i in "123456" %}
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card h-100 shadow-sm">
+            <img src="{% static 'clothing/images/women'|add:i|add:'.jpg' %}" class="card-img-top" style="height:260px; object-fit:cover;" alt="Women Product {{ i }}">
+            <div class="card-body">
+                <h5 class="card-title">Women Dress {{ i }}</h5>
+                <p class="fw-bold text-success mb-0">₹{{ 599|add:i|add:"100" }}</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <form action="{% url 'add_to_cart' pk=i %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-2">
+                        <input type="number" name="quantity" value="1" min="1" class="form-control" style="width:70px; display:inline-block;">
+                    </div>
+                    <button class="btn btn-outline-primary w-100">Add to Cart 🛒</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Kids Products -->
+    {% for i in "123456" %}
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card h-100 shadow-sm">
+            <img src="{% static 'clothing/images/kid'|add:i|add:'.jpg' %}" class="card-img-top" style="height:260px; object-fit:cover;" alt="Kid Product {{ i }}">
+            <div class="card-body">
+                <h5 class="card-title">Kid Outfit {{ i }}</h5>
+                <p class="fw-bold text-success mb-0">₹{{ 399|add:i|add:"50" }}</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <form action="{% url 'add_to_cart' pk=i %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-2">
+                        <input type="number" name="quantity" value="1" min="1" class="form-control" style="width:70px; display:inline-block;">
+                    </div>
+                    <button class="btn btn-outline-primary w-100">Add to Cart 🛒</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %} {% endcomment %}
+
+{% comment %} {% extends 'clothing/base.html' %}
+{% load static %}
+
+{% block title %}Your Cart | Veloura{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">🛒 Your Cart</h2>
+
+    {% if items %}
+        <table class="table table-bordered align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td style="width: 120px;">
+                        {% if item.product.image %}
+                            <img src="{{ item.product.image.url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
+                        {% else %}
+                            <!-- fallback image if none -->
+                            <img src="{% static 'clothing/images/default.jpg' %}" class="img-fluid rounded" alt="No Image">
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <strong>{{ item.product.name }}</strong><br>
+                        <small class="text-muted">{{ item.product.description|default:"" }}</small>
+                    </td>
+
+                    <td>₹ {{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹ {{ item.subtotal }}</td>
+
+                    <td>
+                        <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+        <div class="text-end">
+            <h3>Total:
+                <span class="text-success">₹ {{ total }}</span>
+            </h3>
+            <a href="{% url 'checkout' %}" class="btn btn-primary btn-lg mt-3">Checkout</a>
+        </div>
+
+    {% else %}
+        <div class="alert alert-warning">
+            Your cart is empty.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}  {% endcomment %}
+
+ -->

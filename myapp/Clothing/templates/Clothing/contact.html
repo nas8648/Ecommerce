@@ -1,0 +1,50 @@
+{% extends "clothing/base.html" %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="fw-bold text-center mb-4">📩 Contact Us</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <!-- Contact Form -->
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Full Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Message</label>
+                    <textarea class="form-control" name="message" rows="4" placeholder="Type your message..." required></textarea>
+                </div>
+
+                <button class="btn btn-dark w-100">Send Message</button>
+            </form>
+
+            <!-- Info -->
+            <div class="text-center mt-4">
+                <h6 class="fw-bold">📍 Store Address</h6>
+                <p>123 Fashion Street, Chennai, India</p>
+
+                <h6 class="fw-bold">📞 Phone</h6>
+                <p>+91 98765 43210</p>
+
+                <h6 class="fw-bold">📧 Email</h6>
+                <p>support@clothingstore.com</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

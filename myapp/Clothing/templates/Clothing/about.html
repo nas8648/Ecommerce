@@ -1,0 +1,67 @@
+{% extends "clothing/base.html" %}
+{% load static %}
+
+{% block title %}About Us | Veloura{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Hero Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h1 class="fw-bold display-5">Welcome to Veloura 👗👕</h1>
+            <p class="lead">At Veloura, we craft stylish, high-quality clothing for men, women, and kids. Discover the latest trends without compromising on comfort or price!</p>
+            <a href="{% url 'product_list' %}" class="btn btn-primary mt-3">Shop Now</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'clothing/images/about.jpg' %}" class="img-fluid rounded" alt="Veloura Clothing Store">
+        </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="row text-center mb-5">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Our Mission</h3>
+                    <p class="card-text">To empower our customers with fashionable clothing that boosts confidence and style every day.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Our Vision</h3>
+                    <p class="card-text">To become a leading clothing brand known for quality, trendsetting designs, and exceptional customer experiences.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Veloura -->
+    <div class="mb-5">
+        <h2 class="fw-bold text-center mb-4">Why Choose Veloura?</h2>
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm h-100 p-3 border-0">
+                    <h5 class="fw-bold">Premium Quality</h5>
+                    <p>Only the finest fabrics and materials for unmatched comfort and durability.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm h-100 p-3 border-0">
+                    <h5 class="fw-bold">Trendy Fashion</h5>
+                    <p>Stay stylish with the latest collections for men, women, and kids.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm h-100 p-3 border-0">
+                    <h5 class="fw-bold">Affordable Prices</h5>
+                    <p>Look your best without breaking your budget—fashion that’s accessible to all.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

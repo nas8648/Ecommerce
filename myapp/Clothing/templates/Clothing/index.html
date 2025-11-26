@@ -1,0 +1,19 @@
+{% extends 'clothing/base.html' %}
+{% load static %}
+
+{% block title %}Home | Veloura{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+            <h1 class="fw-bold">Welcome to Veloura 👗👕</h1>
+            <p class="lead">Discover premium fashion for men, women, and kids at the best prices!</p>
+            <a href="{% url 'product_list' %}" class="btn btn-primary mt-3">Shop Now</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'clothing/images/home.jpg' %}" class="img-fluid rounded" alt="Veloura Clothing Store">
+        </div>
+    </div>
+</div>
+{% endblock %}
