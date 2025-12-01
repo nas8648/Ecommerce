@@ -13,7 +13,7 @@ class Product(models.Model):
     description = models.TextField()
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     price = models.FloatField()
-    image = models.CharField(max_length=100)  # store image file name in static/images/
+    image = models.CharField(max_length=100) 
 
     def __str__(self):
         return self.name
@@ -38,4 +38,5 @@ class Contact(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+
         return f"{self.name} - {self.email}"
